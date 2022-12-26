@@ -15,8 +15,8 @@
     <modules>
         <!-- 通用模型 -->
         <module>lab-common-model</module>
-        <!--        &lt;!&ndash; 通用服务/原子服务 &ndash;&gt;-->
-        <!--        <module>lab-common-service</module>-->
+        <!-- 通用服务/原子服务 -->
+        <module>lab-common-service</module>
         <!--        &lt;!&ndash; 管理后台 &ndash;&gt;-->
         <!--        <module>lab-admin</module>-->
 
