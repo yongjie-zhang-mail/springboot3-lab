@@ -1,0 +1,109 @@
+# 日志
+logging:
+  level:
+    com.yj.lab.common.model.rdb.mapper.*: debug
+
+# Swagger
+swagger:
+  documentation:
+    enabled: true
+
+# 主配置
+spring:
+  # RDB 数据库配置
+  datasource:
+    pg:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://aem-test-pg.cluster-cojemua46qv2.us-east-1.rds.amazonaws.com:5432/aem?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai
+      username: dbadmin
+      password: 8gZyWgmHb-
+#      type: com.zaxxer.hikari.HikariDataSource
+#      hikari:
+#        # 连接池最大连接数
+#        maximum-pool-size: 100
+#        # 连接池最小连接数
+#        minimum-idle: 10
+#        # 自动提交事务
+#        auto-commit: true
+#        # 连接池名称
+#        pool-name: hikariPool
+#        # 连接空闲时间，默认10分钟
+#        #        idle-timeout: 600000
+#        # 连接的最大生命周期；默认30分钟，应配置比数据库超时配置，少30s
+#        #        max-lifetime: 1800000
+#        # 客户端等待可用连接的最长时间，默认值30s；
+#        #        connection-timeout: 30000
+
+# Mybatis-Plus 配置
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      id-type: auto
+#      table-underline: true
+#      # 逻辑已删除值(默认为 1)
+#      logic-delete-value: 1
+#      # 逻辑未删除值(默认为 0)
+#      logic-not-delete-value: 0
+#  mapper-locations: classpath:mapper/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  type-aliases-package: com.yj.lab.common.model.rdb.entity.*
+
+# 缓存配置
+cache:
+  redis:
+    host: master.aem-test-redis.zjzejd.use1.cache.amazonaws.com
+    port: 6379
+    password: 8nZ8GWndcTWaXn5-
+    ssl: true
+    jedis:
+      pool:
+        # 最大连接数；例如每个请求平均耗时50ms，那么每个连接的QPS=1000ms/50ms=20qps；max-total=10000qps/20qps=500最大连接数
+        max-total: 2000
+        # 最大可空闲的连接数；实际的最大连接数；
+        max-idle: 1000
+        # 最小可空闲的连接数；实际的最小连接数；
+        min-idle: 100
+        # 连接池出借连接的最长期限
+        max-wait: 5000
+        # 连接超时时间
+        timeout: 3000
+
+# open search 配置
+opensearch:
+  schema: https
+  address: vpc-aem-tst-es-wnnpepebqsl3iajt7wtxijuqk4.us-east-1.es.amazonaws.com:443
+  username: kibanaadmin
+  password: J@g0PqaF5b
+  connectTimeout: 1000
+  socketTimeout: 10000
+  connectionRequestTimeout: 500
+  maxConnectNum: 500
+  maxConnectPerRoute: 100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

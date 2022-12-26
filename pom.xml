@@ -17,8 +17,8 @@
         <module>lab-common-model</module>
         <!-- 通用服务/原子服务 -->
         <module>lab-common-service</module>
-        <!--        &lt;!&ndash; 管理后台 &ndash;&gt;-->
-        <!--        <module>lab-admin</module>-->
+        <!-- 管理后台 -->
+        <module>lab-admin</module>
 
         <!--        &lt;!&ndash; 内部接口 &ndash;&gt;-->
         <!--        <module>dam-internal-api</module>-->
