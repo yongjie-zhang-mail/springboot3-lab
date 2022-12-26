@@ -1,6 +1,8 @@
 package com.yj.lab.common.model.vo.request.common;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -8,16 +10,18 @@ import java.io.Serializable;
 /**
  * @author Zhang Yongjie
  */
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
-@ToString
-public class PageRequestVo<T> implements Serializable {
+public class OsPageRequestVo<T> implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -3138677491851300562L;
 
+    /**
+     * 要查询的索引，默认 jd_product
+     */
+    private String index = "jd_product";
     /**
      * 页码
      */

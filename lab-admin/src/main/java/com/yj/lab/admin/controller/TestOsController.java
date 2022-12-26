@@ -3,6 +3,7 @@ package com.yj.lab.admin.controller;
 import com.yj.lab.admin.service.test.TestOsService;
 import com.yj.lab.common.model.rdb.entity.pg.Product;
 import com.yj.lab.common.model.rdb.entity.pg.User;
+import com.yj.lab.common.model.vo.request.common.OsPageRequestVo;
 import com.yj.lab.common.model.vo.request.common.PageRequestVo;
 import com.yj.lab.common.model.vo.response.common.PageResponseVo;
 import com.yj.lab.common.model.vo.response.common.ResultEntity;
@@ -103,6 +104,14 @@ public class TestOsController {
         PageResponseVo<Product> result = testOsService.searchPage(pageRequestVo);
         return ResultEntity.getSuccessResult(result);
     }
+
+    @PostMapping("searchPage2")
+    @ApiOperation("searchPage2")
+    public ResultEntity<PageResponseVo<Product>> searchPage2(@RequestBody OsPageRequestVo<Product> osPageRequestVo) {
+        PageResponseVo<Product> result = testOsService.searchPage(osPageRequestVo);
+        return ResultEntity.getSuccessResult(result);
+    }
+
 
 }
 

@@ -6,6 +6,7 @@ import com.yj.lab.admin.service.test.TestOsService;
 import com.yj.lab.admin.util.HtmlParserUtil;
 import com.yj.lab.common.model.rdb.entity.pg.Product;
 import com.yj.lab.common.model.rdb.entity.pg.User;
+import com.yj.lab.common.model.vo.request.common.OsPageRequestVo;
 import com.yj.lab.common.model.vo.request.common.PageRequestVo;
 import com.yj.lab.common.model.vo.response.common.PageResponseVo;
 import lombok.SneakyThrows;
@@ -297,6 +298,24 @@ public class TestOsServiceImpl implements TestOsService {
 
         result.setTotal(searchResponse.getHits().getTotalHits().value);
         result.setList(products);
+
+        return result;
+    }
+
+    /**
+     * 示例：使用封装的工具类查询 Open Search
+     * 关键点：构造 QueryBuilder
+     *
+     * @param osPageRequestVo 分页查询入参，含分页信息，index，查询关键字等
+     * @return PageResponseVo<T> 返回对应泛型实体类
+     */
+    @SneakyThrows
+    @Override
+    public PageResponseVo<Product> searchPage(OsPageRequestVo<Product> osPageRequestVo) {
+        // 根据传入的 OsPageRequestVo 对象，构建 QueryBuilder
+        QueryBuilder queryBuilder = QueryBuilders.termQuery("name", osPageRequestVo.getEntity().getName());
+
+        PageResponseVo<Product> result = openSearchUtil.searchPage(osPageRequestVo, queryBuilder);
 
         return result;
     }
