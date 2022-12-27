@@ -108,8 +108,14 @@ public class TestOsController {
     @PostMapping("searchPage2")
     @ApiOperation("searchPage2")
     public ResultEntity<PageResponseVo<Product>> searchPage2(@RequestBody OsPageRequestVo<Product> osPageRequestVo) {
-        log.info("测试版本是否回退正常");
         PageResponseVo<Product> result = testOsService.searchPage(osPageRequestVo);
+        return ResultEntity.getSuccessResult(result);
+    }
+
+    @PostMapping("searchPage3")
+    @ApiOperation("searchPage3")
+    public ResultEntity<PageResponseVo<Product>> searchPage3(@RequestBody OsPageRequestVo<Product> osPageRequestVo) {
+        PageResponseVo<Product> result = testOsService.searchPage3(osPageRequestVo);
         return ResultEntity.getSuccessResult(result);
     }
 

@@ -320,6 +320,18 @@ public class TestOsServiceImpl implements TestOsService {
         return result;
     }
 
+    @SneakyThrows
+    @Override
+    public PageResponseVo<Product> searchPage3(OsPageRequestVo<Product> osPageRequestVo) {
+        // 根据传入的 OsPageRequestVo 对象，构建 QueryBuilder
+        // QueryBuilder queryBuilder = QueryBuilders.termQuery("name", osPageRequestVo.getEntity().getName());
+        QueryBuilder queryBuilder = QueryBuilders.matchQuery("name", osPageRequestVo.getEntity().getName());
+
+        PageResponseVo<Product> result = openSearchUtil.searchPage(osPageRequestVo, queryBuilder);
+
+        return result;
+    }
+
 
     public static void main(String[] args) {
 //        mainTest1();

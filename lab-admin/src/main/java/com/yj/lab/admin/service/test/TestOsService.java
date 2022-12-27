@@ -38,4 +38,7 @@ public interface TestOsService {
 
     @SneakyThrows
     PageResponseVo<Product> searchPage(OsPageRequestVo<Product> osPageRequestVo);
+
+    @SneakyThrows
+    PageResponseVo<Product> searchPage3(OsPageRequestVo<Product> osPageRequestVo);
 }
